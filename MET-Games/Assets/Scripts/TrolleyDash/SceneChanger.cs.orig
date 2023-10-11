@@ -1,0 +1,56 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneChanger : MonoBehaviour
+{
+    public GameObject wincon;
+    public GameObject titlescreen;
+    public GameObject gameplay;
+    public GameObject ListGen;
+    public void SceneLoader(int buildIndex)
+    {
+       SceneManager.LoadScene(buildIndex);
+    }
+
+    /// <summary>
+    /// Reloads the active scene. 
+    /// </summary>
+<<<<<<< HEAD
+    public void ReloadScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PlayAgainTrolleyDash()
+    {
+        wincon.SetActive(false);
+        titlescreen.SetActive(true);
+    }
+
+    public void Gameplay()
+    {
+        ListGen.SetActive(false);
+        gameplay.SetActive(true);
+    }
+=======
+    public void ReloadScene()
+    {
+        StartCoroutine(DelayReloadScene());
+    }
+
+    private IEnumerator DelayReloadScene()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /// <summary>
+    /// Quits the application.
+    /// </summary>
+    public void QuitGame() => Application.Quit();
+>>>>>>> match
+}
